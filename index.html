@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+ 
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="displayStep" id="displayStep">
+      <div class="circle">
+        <div class="circle1" id="circle1"><p>1</p></div>
+        <div class="circle2" id="circle2"><p>2</p></div>
+        <div class="circle3" id="circle13"><p>3</p></div>
+        <div class="circle4" id="circle14"><p>4</p></div>
+      </div>
+      <div class="steps">
+        <div class="step1">
+          <p>Step 1</p>
+          <span>Your Info</span>
+        </div>
+        <div class="step1">
+          <p>Step 2</p>
+          <span>Select plan</span>
+        </div>
+        <div class="step1">
+          <p>Step 3</p>
+          <span>Add-ons</span>
+        </div>
+        <div class="step1">
+          <p>Step 4</p>
+          <span>Summary</span>
+        </div>
+      </div>
+    </div>
+    <div class="stepContainer" id="stepContainer">
+      <div class="affichStep">
+        <div class="stepInfo" id="stepInfo">
+            <h1>Personal Info</h1>
+            <p class="description">
+               Personal info
+                Please provide your name, email address, and phone number.
+            </p>
+
+            <div class="flexError">
+              <p> Name</p>
+              <span id="errorName"></span>
+            </div>
+
+            <input type="text" name="" id="infoName" placeholder="e.g. Stephen King">
+
+            <div class="flexError">
+              <p>Email Address</p>
+              <span id="errorMail"></span>
+            </div>
+
+            <input type="text" name="" id="infoMail" placeholder=" e.g. stephenking@lorem.com">
+
+            <div class="flexError">
+              <p> Phone Number</p>
+              <span id="errorNum"></span>
+            </div>
+
+            <input type="text" name="" id="infoNumber" placeholder=" e.g. +1 234 567 890">
+
+            <div class="buttonContainerStepOne">
+              <button onclick="goStepTwo()" class="nextStep">Next Step</button>
+            </div>
+
+        </div>
+      
+      <!-- Select your plan -->
+      <div class="stepPlan" id="stepPlan">
+        <h>Select your Plan</h>
+        <p class="description">
+          You have the option of monthly or yearly billing.
+        </p>
+
+        <div class="planMonth" id="planMonth">
+          <button class="planButton" id="moisArcade" onclick="getPrice1()">
+            <img src="./assets/images/icon-arcade.svg" alt="">
+            <p>Arcade</p>
+            <span class="priceMonth" id="priceMonth">$9/mo</span>
+          </button>
+          <button class="planButton" id="moisArcade" onclick="getPrice1()">
+            <img src="./assets/images/icon-advanced.svg" alt="">
+            <p>Advanced</p>
+            <span class="priceMonth" id="priceMonth">$12/mo</span>
+          </button>
+          <button class="planButton" id="moisArcade" onclick="getPrice1()">
+            <img src="./assets/images/icon-pro.svg" alt="">
+            <p> Pro</p>
+            <span class="priceMonth" id="priceMonth">$15/mo</span>
+          </button>
+        </div>
+
+        <div class="planMonth" id="planYear">
+          <button class="planButton" id="anneeArcade" onclick="getPrice4">
+            <img src="./assets/images/icon-arcade.svg" alt="">
+            <p>Arcade</p>
+            <span class="priceYear"> $90/yr</span>
+            <label for="" class="free">2 months free</label>
+          </button>
+          <button class="planButton" id="anneeAdvanced" onclick="getPrice5">
+            <img src="./assets/images/icon-advanced.svg" alt="">
+            <p>Advanced</p>
+            <span class="priceYear">$120/yr</span>
+            <label for="" class="free">2 months free</label> 
+          </button>
+          <button class="planButton" id="anneeArcade" onclick="getPrice6">
+            <img src="./assets/images/icon-pro.svg" alt="">
+            <p>Pro</p>
+            <span class="priceYear">$150/yr</span>
+            <label for="" class="free">2 months free</label>
+          </button>
+        </div>
+        <div class="switch">
+          <p class="monthly">  Monthly</p>
+
+          <label for="" class="check">
+            <input type="checkbox" name="" id="switch" id="checkbox" onclick="reset()">
+            <span></span>
+          </label>
+          <p class="yearly"> Yearly</p>
+        </div>
+        <div class="buttonContainerStepTwo">
+          <button onclick="backStepOne()" class="goBack">Go Back</button>
+          <button onclick="backStepThree()" class="nextStep">Next Step</button>
+        </div>
+      </div>
+
+      <!--ADD ON-->
+      <div class="stepAddOn" id="stepAddOn">
+        <h1>  Pick add-ons</h1>
+        <p class="description">
+          Add-ons help enhance your gaming experience.
+        </p>
+        <div id="addonMois">
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="onlineMois" value="1">
+            <div class="addOn">
+              <p class="addSize">Online service</p>
+              <span>Access to multiplayer games</span>
+            </div>
+          </div>
+          <p class="prix"> +$1/yr</p>
+          </div>
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="storageMois" value="2">
+            <div class="addOn">
+              <p class="addSize">Larger storage</p>
+              <span>Extra 1TB of cloud save</span>
+            </div>
+          </div>
+          <p class="prix"> +$2/mo</p>
+          </div>
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="customizableMois" value="2">
+            <div class="addOn">
+              <p class="addSize">Customizable Profile</p>
+              <span>Custom theme on your profile</span>
+            </div>
+          </div>
+          <p class="prix"> +$2/mo</p>
+          </div>
+
+        </div>
+
+        <!--year button-->
+
+
+        <div id="addonAnne">
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="onlineAnne" value="10">
+            <div class="addOn">
+              <p class="addSize">Online service</p>
+              <span>Access to multiplayer games</span>
+            </div>
+          </div>
+          <p class="prix"> +$10/yr</p>
+          </div>
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="storageAnne" value="20">
+            <div class="addOn">
+              <p class="addSize">Larger storage</p>
+              <span>Extra 1TB of cloud save</span>
+            </div>
+          </div>
+          <p class="prix"> +$20/yr</p>
+          </div>
+
+          <div class="addOnButton">
+            <div class="regroup">
+            <input type="checkbox" name="addOn" id="customizableAnne" value="20">
+            <div class="addOn">
+              <p class="addSize">Customizable Profile</p>
+              <span>Custom theme on your profile</span>
+            </div>
+          </div>
+          <p class="prix"> +$20/yr</p>
+          </div>
+
+        </div>
+
+        <div class="buttonContainerStepThree">
+          <button onclick="backStepTwo()" class="goBack">Go Back</button>
+          <button onclick="backStepFour()" class="nextStep">Next Step</button>
+        </div>
+      </div>
+
+      <!--summary-->
+      <div class="stepSummary" id="stepSummary">
+        <h1>Finishing Up</h1>
+        <p class="description">
+          Double-check everything looks OK before confirming.
+        </p>
+        <div class="resume">
+          <div class="containerResume">
+            <div id="resumeMonth">
+              <div class="flexResume">
+                <div>
+                  <h4 id="modeResume">Choose a plan </h4>
+                  <button onclick="goFromFourToTwo()">Change</button>
+                </div>
+                <label for="" id="priceResume"></label>
+              </div>
+              <br>
+              <span></span>
+              <div class="flexResume">
+                <p>Online service</p>
+                <label for="" id="onlinePrice">+0$</label>
+              </div>
+              <div class="flexResume">
+                <p>Larger storage</p>
+                <label for="" id="storagePrice">+0$</label>
+              </div>
+              <div class="flexResume">
+                <p>Customizable profile</p>
+                <label for="" id="customizablePrice">+0$</label>
+              </div>
+            </div>
+          </div>
+          <div class="flexTotal">
+            <p id="modTotal">Total</p>
+            <span id="totalPrice"></span>
+            <span class="dollar">$</span>
+          </div>
+          <div class="buttonContainerStepFour">
+            <button onclick="backStepThree()" class="goBack">Go Back</button>
+            <button onclick="goToStepThankYou()" class="nextStep">Confirm</button>
+          </div>
+        </div>
+      </div>
+
+      <!--Thank you section-->
+      <div class="stepThankYou" id="stepThankYou">
+        <img src="./assets/images/icon-thank-you.svg" alt="thank you image">
+        <h1>Thank You!</h1>
+        <p>  Thanks for confirming your subscription! We hope you have fun 
+          using our platform. If you ever need support, please feel free 
+          to email us at support@loremgaming.com.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5 end -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Dulanjali Senarathna</a>.
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
